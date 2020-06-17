@@ -56,11 +56,11 @@ $(".hole").click(function() {
             
             $.getJSON(teeAPI, function(data){
                 teeYards = Math.round(1.09361*data.rows[0].distance);
-                $('#tee-text').html(teeYards)
+                $('#tee-text').html("<b>"+teeYards+"</b>")
             });
             $.getJSON(greenAPI, function(data){
                 GreenYards = Math.round(1.09361*data.rows[0].distance);
-                $('#green-text').html(GreenYards)
+                $('#green-text').html("<b>"+GreenYards+"</b>")
             });
             
             $('.table').show();
