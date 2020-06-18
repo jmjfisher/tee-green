@@ -12,7 +12,7 @@ body {
     background-color: #91c7eb;
 }
 
-h2 {
+h1 {
     font-family: 'Korinna', sans-serif;
     color: #dc3525;
     text-shadow: -1px 0 #ffe29a, 0 1px #ffe29a, 1px 0 #ffe29a, 0 -1px #ffe29a;
@@ -35,4 +35,5 @@ h2 {
 
 #yards-table {
     display: none;
+    font-size: 1.1em;
 }

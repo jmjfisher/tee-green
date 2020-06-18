@@ -25,6 +25,7 @@ $(".hole").click(function(){
     $('.table').hide();
     
     var hole = parseInt($(this).attr("id"),10);
+    $('#hole-text').html("<b>"+hole+"</b>")
     
     function geoEnabled(position){
         
