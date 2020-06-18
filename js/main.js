@@ -34,7 +34,7 @@ $(".hole").click(function(){
         var course = $('#course').val();
 
         var q1 = "SELECT ST_Distance((select the_geom_webmercator ";
-        var q2 = "ST_Transform('SRID=4326;POINT("+userLon+" "+userLat+")'::geometry, 3857))*cosd("+44.928378+") as distance";
+        var q2 = "ST_Transform('SRID=4326;POINT("+userLon+" "+userLat+")'::geometry, 3857))*cosd("+userLat+") as distance";
         var qt = "from fisherjohnmark.golf where course ='"+course+"' and hole="+hole+" and torg='T'),";
         var qg = "from fisherjohnmark.golf where course ='"+course+"' and hole="+hole+" and torg='G'),";
 
