@@ -61,7 +61,7 @@ $(".hole").click(function(){
     
 	if (navigator.geolocation){
         
-		navigator.geolocation.getCurrentPosition(geoEnabled,geoDisabled,{enableHighAccuracy:true})
+		navigator.geolocation.getCurrentPosition(geoEnabled,geoDisabled,{maximumAge:0,enableHighAccuracy:true})
     };
     
 });
