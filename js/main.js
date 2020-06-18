@@ -22,6 +22,8 @@ $("#b9b").click(function(){
 
 $(".hole").click(function(){
     
+    $('.table').hide();
+    
     var hole = parseInt($(this).attr("id"),10);
     
     function geoEnabled(position){
@@ -49,9 +51,8 @@ $(".hole").click(function(){
         $.getJSON(greenAPI, function(data){
             GreenYards = Math.round(1.09361*data.rows[0].distance);
             $('#green-text').html("<b>"+GreenYards+"</b>")
+            $('.table').show();
         });
-
-        $('.table').show();
     };
     
     function geoDisabled(){
@@ -61,7 +62,7 @@ $(".hole").click(function(){
     
 	if (navigator.geolocation){
         
-		navigator.geolocation.getCurrentPosition(geoEnabled,geoDisabled,{maximumAge:0,enableHighAccuracy:true})
+		navigator.geolocation.getCurrentPosition(geoEnabled,geoDisabled,{maximumAge:0,timeout:5000,enableHighAccuracy:true})
     };
     
 });
