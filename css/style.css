@@ -18,12 +18,21 @@ h3 {
     text-shadow: -1px 0 #ffe29a, 0 1px #ffe29a, 1px 0 #ffe29a, 0 -1px #ffe29a;
 }
 
-#yards-table {
-    display: none;
+.nine {
+    background-color: #dc3525;
+    border-color: #ffe29a;
 }
 
 .hole {
     display: none;
     background-color: #dc3525;
     border-color: #ffe29a;
+}
+
+.br-div {
+    display: none;
+}
+
+#yards-table {
+    display: none;
 }
