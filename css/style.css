@@ -32,6 +32,10 @@ h2 {
 #google-map {
     display: none;
 }
+#google-map img {
+    background-color: #ffe29a;
+    border-radius: 7px;
+}
 
 .br-div {
     display: none;
