@@ -3,6 +3,7 @@ $("#f9b").click(function(){
     $('.hole').css('display','none');
     $('.br-div').css('display','none');
     $('.table').hide();
+    $('#google-map').hide();
     
     $('.front-9').css('display','inline');
     $('.br-div-f').css('display','block');
@@ -14,6 +15,7 @@ $("#b9b").click(function(){
     $('.hole').css('display','none');
     $('.br-div').css('display','none');
     $('.table').hide();
+    $('#google-map').hide();
     
     $('.back-9').css('display','inline');
     $('.br-div-b').css('display','block');
@@ -23,6 +25,7 @@ $("#b9b").click(function(){
 $(".hole").click(function(){
     
     $('.table').hide();
+    $('#google-map').hide();
     
     var hole = parseInt($(this).attr("id"),10);
     $('#hole-text').html("<b>"+hole.toString()+"</b>")
@@ -32,6 +35,8 @@ $(".hole").click(function(){
         var userLat = position.coords.latitude;
         var userLon = position.coords.longitude;
         var course = $('#course').val();
+        
+        $('#google-map').attr("href", "https://www.google.com/maps/search/?api=1&query="+userLat+","+userLon)
 
         var q1 = "SELECT ST_Distance((select the_geom_webmercator ";
         var q2 = "ST_Transform('SRID=4326;POINT("+userLon+" "+userLat+")'::geometry, 3857))*cosd("+userLat+") as distance";
@@ -53,6 +58,7 @@ $(".hole").click(function(){
             GreenYards = Math.round(1.09361*data.rows[0].distance);
             $('#green-text').html("<b>"+GreenYards+"</b>")
             $('.table').show();
+            $('#google-map').show();
         });
     };
     
