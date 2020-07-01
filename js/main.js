@@ -24,6 +24,13 @@ $("#b9b").click(function(){
 
 $(".hole").click(function(){
     
+	if (navigator.geolocation){
+        
+		navigator.geolocation.getCurrentPosition(geoEnabled,
+                                                 errorCallback,
+                                                 {maximumAge:0,timeout:0,enableHighAccuracy:true})
+    };
+    
     $('.table').hide();
     $('#google-map').hide();
     
@@ -62,14 +69,16 @@ $(".hole").click(function(){
         });
     };
     
-    function geoDisabled(){
+    function errorCallback(error){
         
-        alert("Please enable your Geolocation!");
-    };
-    
-	if (navigator.geolocation){
-        
-		navigator.geolocation.getCurrentPosition(geoEnabled,geoDisabled,{maximumAge:0,timeout:5000,enableHighAccuracy:true})
+      switch(error.code) {
+              
+        case error.TIMEOUT:
+            navigator.geolocation.getCurrentPosition(geoEnabled,
+                                                     errorCallback,
+                                                     {maximumAge:0,enableHighAccuracy:true})
+            break;
+      };
     };
     
 });
